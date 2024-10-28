@@ -19,3 +19,15 @@ Depois, os arquivos `.csv` foram salvos em uma pasta no Google Drive para poster
 ### Agregação 
 
 Para facilitar as etapas de tratamento dos dados, os arquivos `.csv` foram agregados em um só, filtrando as cidades e impostos solicitados na descrição do projeto. Além disso, foram removidos dos `.csv` as entradas de dados referentes a valores totais anuais e previsões.
+
+Os detalhes mais específicos relacionados ao código podem ser obtidos em `Data_Mining_Coleta_e_Agregação.ipynb`.
+
+### Tratamento
+
+Com respeito ao tratamento dos dados, a principal tarefa realizada foi de preenchimento de dados faltantes, pois para algumas cidades, estavam faltando datas de coleta. Portanto foi necessário preencher completamente as entradas faltantes.
+
+Para isso, primeiramente foram identificadas as datas faltantes para cada cidade e imposto, utilizando uma série temporal de referência entre os Janeiro de 2016 e Dezembro de 2023. Sabendo quais datas estavam faltando, facilmente foram preenchidas as variáveis não númericas, para as númericas foi necessária a utilização de ferramentas preditivas.
+
+Como dito anteriormente, para as variáveis numéricas, `População` e `Valor`, foi necessário o uso de ferramentas de predição. No caso da `População` utilizamos regressão linear, devido a natureza da própria variável. Em contrapartida, para o `Valor`, correspondente a quantidade coletada de um imposto em uma cidade em um período de tempo, utilizamos a biblioteca `Prophet`, de modo a se beneficiar das propriedades das séries temporais dos valores, isto é, tendência, sazonalidade, ciclo e ruído.
+
+Os detalhes mais específicos relacionados ao código podem ser obtidos em `Data_Mining_Preenchimento.ipynb`.
