@@ -42,3 +42,21 @@ Para a etapa de regressão, foi utilizado o `Prophet` para modelar as séries te
 * Armazenamento dos Resultados: As previsões finais foram consolidadas em um novo DataFrame, df_final, incluindo variáveis como Ano, Mês, Instituição e Conta, e o resultado foi exportado como `Dados_Regressao.csv` para posterior carregamento na ferramenta de visualização.
 
 Esses detalhes podem ser visualizados em maior profundidade no arquivo `Data_Mining_Regression.ipynb`.
+
+### Clusterização
+
+Nessa etapa, foram utilizados diferentes métodos de clusterização, além de técnicas de redução de dimensionalidade, num processo que envolveu:
+
+* Preparo dos Dados: O conjunto de dados foi agregado com soma, utilizando as variáveis `Instituição`, `Conta` e `Ano`. Depois, foi feito o cálculo da váriação percentual para cada ano e a criação de um conjunto de dados onde cada `Conta_Ano` representa a váriação percentual do imposto anual para uma cidade, e ao mesmo tempo, uma coordenada $X_n$ para uma cidade.
+* Aplicação da Clusterização (raw): A clusterização foi feita utilizando primeiramente os algoritmos AGNES (bottom-up) e DIANA (top-down), com o número de clusters `K` definido como 4.
+* Aplicação da Clusterização + PCA: Essa etapa foi feita utilizando o algoritmo K-Means e uma redução de dimensionalidade com PCA de 2 fatores.
+* Análise de disciminante e adição de novas cidades: Foram escolhidas cinco novas cidades para aplicar a análise de discriminante e estabelecer a que grupo cada nova cidade pertence. Para essas novas cidades, os mesmos processos anteriores foram realizados.
+* Vizualização: A visualização dos resultados de clusterização foi feita utilizando grafos, com o auxílio da biblioteca `NetworkX`.
+
+Esses detalhes podem ser visualizados em maior profundidade no arquivo `Data_Mining_Clustering.ipynb`.
+
+### Modelagem Dimensional
+
+Etapa extra, foi feita com o objetivo de simplificar a produção do Dashboard com o Qlik. Os dados foram separados nas seguintes dimensões:
+
+* 
