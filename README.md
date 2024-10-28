@@ -31,3 +31,14 @@ Para isso, primeiramente foram identificadas as datas faltantes para cada cidade
 Como dito anteriormente, para as variáveis numéricas, `População` e `Valor`, foi necessário o uso de ferramentas de predição. No caso da `População` utilizamos regressão linear, devido a natureza da própria variável. Em contrapartida, para o `Valor`, correspondente a quantidade coletada de um imposto em uma cidade em um período de tempo, utilizamos a biblioteca `Prophet`, de modo a se beneficiar das propriedades das séries temporais dos valores, isto é, tendência, sazonalidade, ciclo e ruído.
 
 Os detalhes mais específicos relacionados ao código podem ser obtidos em `Data_Mining_Preenchimento.ipynb`.
+
+### Regressão
+
+Para a etapa de regressão, foi utilizado o `Prophet` para modelar as séries temporais dos valores dos impostos em cada cidade. Esse processo envolveu:
+
+* Preparo dos Dados: Os dados foram filtrados para cada cidade e imposto, sendo renomeados para os formatos exigidos pelo `Prophet` (`ds` para `data` e `y` para `valor`).
+* Treinamento e Validação: O processo de seleção do parâmetro `K` envolveu a divisão dos dados em partes para determinar o número de períodos ideais para o treinamento do modelo. Foram gerados diferentes modelos para valores de `K` entre 2 e 6, e calculado o erro médio quadrático (MSE) para cada um, selecionando o menor MSE.
+* Previsão Final: Após definir o valor de `K`, o modelo foi treinado com os dados correspondentes e ajustado para prever os valores futuros, abrangendo 24 meses à frente (2024 e 2025).
+* Armazenamento dos Resultados: As previsões finais foram consolidadas em um novo DataFrame, df_final, incluindo variáveis como Ano, Mês, Instituição e Conta, e o resultado foi exportado como `Dados_Regressao.csv` para posterior carregamento na ferramenta de visualização.
+
+Esses detalhes podem ser visualizados em maior profundidade no arquivo `Data_Mining_Regression.ipynb`.
