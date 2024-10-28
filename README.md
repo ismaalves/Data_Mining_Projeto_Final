@@ -57,6 +57,10 @@ Esses detalhes podem ser visualizados em maior profundidade no arquivo `Data_Min
 
 ### Modelagem Dimensional
 
-Etapa extra, foi feita com o objetivo de simplificar a produção do Dashboard com o Qlik. Os dados foram separados nas seguintes dimensões:
+Etapa extra, foi feita com o objetivo de simplificar a elaboração do Dashboard no Qlik. Os dados foram separados nas seguintes dimensões:
 
-* 
+* Geografia: Diz respeito ao Código do IBGE, nome da cidade, estado e região.
+* Tipo de Imposto: Cada tipo de imposto que foi coletado.
+* Tempo: A granularidade de coleta de cada imposto, anual ou mensal.
+
+Os detalhes mais específicos relacionados ao código podem ser obtidos em `Data_Mining_Modeling.ipynb`.
